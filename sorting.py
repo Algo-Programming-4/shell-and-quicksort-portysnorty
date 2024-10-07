@@ -66,11 +66,12 @@ def Partition(numbers, lowIndex, highIndex):
 
     return highIndex
 
+def quickSort(ls):
+    return Quicksort(ls,0, len(ls)-1)
 
-def quicksort(numbers, lowIndex, highIndex):
+def Quicksort(numbers, lowIndex, highIndex):
    if lowIndex >= highIndex:
       return
-   
 
    lowEndIndex = Partition(numbers, lowIndex, highIndex)
    
