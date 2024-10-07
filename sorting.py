@@ -67,17 +67,17 @@ def Partition(numbers, lowIndex, highIndex):
     return highIndex
 
 def quickSort(ls):
-    Quicksort(ls,0, len(ls)-1)
+    Quickestsort(ls,0, len(ls)-1)
     return ls
 
-def Quicksort(numbers, lowIndex, highIndex):
+def Quickestsort(numbers, lowIndex, highIndex):
     if lowIndex >= highIndex:
       return 
 
     lowEndIndex = Partition(numbers, lowIndex, highIndex)
    
-    Quicksort(numbers, lowIndex, lowEndIndex)
-    Quicksort(numbers, lowEndIndex + 1, highIndex)
+    Quickestsort(numbers, lowIndex, lowEndIndex)
+    Quickestsort(numbers, lowEndIndex + 1, highIndex)
 
 #shell(list) -> sorted list
 def thisSort(ls, start, gap):
