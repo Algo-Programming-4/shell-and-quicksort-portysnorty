@@ -42,7 +42,7 @@ def insertion(ls):
 
 #quicksort(list) -> sorted list
 def Partition(numbers, lowIndex, highIndex):
-    midpoint = lowIndex + (highIndex - lowIndex) / 2
+    midpoint = lowIndex + (highIndex - lowIndex) // 2
     pivot = numbers[midpoint]
    
     done = False
@@ -67,16 +67,17 @@ def Partition(numbers, lowIndex, highIndex):
     return highIndex
 
 def quickSort(ls):
-    return Quicksort(ls,0, len(ls)-1)
+    Quicksort(ls,0, len(ls)-1)
+    return ls
 
 def Quicksort(numbers, lowIndex, highIndex):
-   if lowIndex >= highIndex:
-      return
+    if lowIndex >= highIndex:
+      return 
 
-   lowEndIndex = Partition(numbers, lowIndex, highIndex)
+    lowEndIndex = Partition(numbers, lowIndex, highIndex)
    
-   Quicksort(numbers, lowIndex, lowEndIndex)
-   Quicksort(numbers, lowEndIndex + 1, highIndex)
+    Quicksort(numbers, lowIndex, lowEndIndex)
+    Quicksort(numbers, lowEndIndex + 1, highIndex)
 
 #shell(list) -> sorted list
 def insertionSort(ls, start, gap):
@@ -87,20 +88,21 @@ def insertionSort(ls, start, gap):
             ls[x] = ls[x - gap]
             ls[x - gap] = temp
             x = x - gap
+    
+    return ls
 
 def shell(numbers):
     numSize = len(numbers)
-    tempSize = numSize
+    tempSize = numSize-1
     temp = 0
     gaps = []
-    swaps = []
     while tempSize>0:
-        tempSize=tempSize/2
+        tempSize=tempSize//2
+        gaps.append((2**temp))
         temp+=1
-        gaps.append(2^temp)
     gaps.reverse()
     for i in gaps:
         for x in range(i):
-            swaps.append(insertionSort(numbers, x, i))
+            numbers = insertionSort(numbers, x, i)
     
-    return swaps
+    return numbers
