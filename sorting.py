@@ -66,7 +66,7 @@ def Partition(numbers, lowIndex, highIndex):
 
     return highIndex
 
-def quickSort(ls):
+def quicksort(ls):
     Quickestsort(ls,0, len(ls)-1)
     return ls
 
