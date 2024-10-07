@@ -80,7 +80,7 @@ def Quicksort(numbers, lowIndex, highIndex):
     Quicksort(numbers, lowEndIndex + 1, highIndex)
 
 #shell(list) -> sorted list
-def insertionSort(ls, start, gap):
+def thisSort(ls, start, gap):
     for i in range(start + gap, len(ls), gap):
         x = i
         while ((x - gap) >= start) and (ls[x] < ls[x - gap]):
@@ -103,6 +103,6 @@ def shell(numbers):
     gaps.reverse()
     for i in gaps:
         for x in range(i):
-            numbers = insertionSort(numbers, x, i)
+            numbers = thisSort(numbers, x, i)
     
     return numbers
